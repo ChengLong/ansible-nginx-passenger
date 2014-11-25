@@ -12,7 +12,7 @@ Ansible role for installing nginx with passenger on Ubuntu. It does the followin
 7. Set passenger_root and passenger_ruby
 8. Restart nginx
 
-This role *ONLY* ensures that ngxin and passenger are installed and configed correctly. 
+This role *ONLY* ensures that nginx and passenger are installed and configed correctly. You need to config nginx to deploy your app. 
 
 Requirements
 ------------
