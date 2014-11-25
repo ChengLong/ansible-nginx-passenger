@@ -16,6 +16,7 @@ Requirements
 ------------
 
 You *should* have ruby installed. `passenger_ruby` will point to `/usr/bin/ruby`
+You need `sudo: yes` to play the role.
 
 Role Variables
 --------------
@@ -32,6 +33,7 @@ Example Playbook
 
 ```
 - hosts: servers
+  sudo: yes
   roles:
      - role: ChengLong.nginx-passenger 
 ```
