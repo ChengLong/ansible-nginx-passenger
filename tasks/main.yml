@@ -31,3 +31,7 @@
   with_items: 
     - nginx-extras
     - passenger
+
+#- name: Ensure passenger_root is set
+#  lineinfile: dest=/etc/nginx/nginx.conf state=present
+
