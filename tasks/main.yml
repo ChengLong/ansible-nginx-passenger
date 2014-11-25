@@ -16,7 +16,7 @@
     - ca-certificates
 
 - name: Find ubuntu distro short name 
-  shell: "grep $(lsb_release -rs) /usr/share/python-apt/templates/Ubuntu.info | grep -m 1 'Description: Ubuntu ' | cut -d "'" -f2 | cut -d ' ' -f1"
+  shell: "grep $(lsb_release -rs) /usr/share/python-apt/templates/Ubuntu.info | grep -m 1 'Description: Ubuntu ' | cut -d "''" -f2 | cut -d ' ' -f1"
   register: distro
 
 - name: Add passenger source
