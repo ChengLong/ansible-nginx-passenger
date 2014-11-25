@@ -12,11 +12,13 @@ Ansible role for installing nginx with passenger on Ubuntu. It does the followin
 7. Set passenger_root and passenger_ruby
 8. Restart nginx
 
+This role *ONLY* ensures that ngxin and passenger are installed and configed correctly. 
+
 Requirements
 ------------
 
-You *should* have ruby installed. `passenger_ruby` will point to `/usr/bin/ruby`
-You need `sudo: yes` to play the role.
+1. You *should* have ruby installed. `passenger_ruby` will point to `/usr/bin/ruby`
+2. You need `sudo: yes` to play the role.
 
 Role Variables
 --------------
