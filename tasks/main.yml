@@ -7,7 +7,7 @@
     - passenger
 
 - name: Install Passenger PGP key
-  apt_key: url=http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xAC40B2F7 state=present 
+  apt_key: url='http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xAC40B2F7' state=present 
 
 - name: Add HTTPS support for apt
   apt: name={{ item }} state=present
@@ -16,7 +16,7 @@
     - ca-certificates
 
 - name: Find ubuntu distro short name 
-  shell: grep $(lsb_release -rs) /usr/share/python-apt/templates/Ubuntu.info | grep -m 1 "Description: Ubuntu " | cut -d "'" -f2 | cut -d ' ' -f1
+  shell: grep $(lsb_release -rs) /usr/share/python-apt/templates/Ubuntu.info | grep -m 1 'Description: Ubuntu ' | cut -d "'" -f2 | cut -d ' ' -f1
   register: distro
 
 - name: Add passenger source
