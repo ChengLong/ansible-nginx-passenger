@@ -15,9 +15,9 @@
     - apt-transport-https
     - ca-certificates
 
-- name: Find ubuntu distro short name 
+- name: Find ubuntu/debian distro short name
   shell: >
-    grep $(lsb_release -rs) /usr/share/python-apt/templates/Ubuntu.info | grep -m 1 'Description: Ubuntu ' | cut -d "'" -f2 | cut -d ' ' -f1 | tr "[:upper:]" "[:lower:]"
+    lsb_release -c | cut -d: -f2 | tr -d ' '
   register: distro
 
 - name: Add passenger source
