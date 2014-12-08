@@ -17,7 +17,7 @@
 
 - name: Find ubuntu/debian distro short name
   shell: >
-    lsb_release -c | cut -d: -f2 | tr -d ' '
+    lsb_release -c | cut -d: -f2 | sed 's/\s//g'
   register: distro
 
 - name: Add passenger source
