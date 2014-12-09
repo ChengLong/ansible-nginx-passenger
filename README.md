@@ -1,7 +1,7 @@
 nginx-passenger
 =========
 
-Ansible role for installing nginx with passenger on Ubuntu. It does the following:
+Ansible role for installing nginx with passenger on Debian/Ubuntu. It does the following:
 
 1. Remove apache2, nginx and passenger
 2. Install Passenger PGP key
@@ -17,7 +17,7 @@ This role *ONLY* ensures that nginx and passenger are installed and configed cor
 Requirements
 ------------
 
-1. You *should* have ruby installed. `passenger_ruby` will point to `/usr/bin/ruby`
+1. You *should* have ruby installed at `/usr/bin/ruby`. `passenger_ruby` will point to `/usr/bin/ruby`
 2. You need `sudo: yes` to play the role.
 
 Role Variables

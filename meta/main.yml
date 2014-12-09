@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Cheng Long 
-  description: Install nginx with passenger on Ubuntu 
+  description: Install nginx with passenger on Debian/Ubuntu 
   # Some suggested licenses:
   # - BSD (default)
   # - MIT
@@ -42,13 +42,13 @@ galaxy_info:
   #  versions:
   #  - all
   #  - any
-  #- name: Debian
-  #  versions:
-  #  - all
-  #  - etch
-  #  - lenny
-  #  - squeeze
-  #  - wheezy
+    - name: Debian
+      versions:
+      - all
+      - etch
+      - lenny
+      - squeeze
+      - wheezy
   #
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
