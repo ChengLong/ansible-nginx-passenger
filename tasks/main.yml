@@ -7,7 +7,7 @@
     - passenger
 
 - name: Install Passenger PGP key
-  apt_key: url='http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xAC40B2F7' state=present 
+  apt_key: url='http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xAC40B2F7' state=present
 
 - name: Add HTTPS support for apt
   apt: name={{ item }} state=present
@@ -15,38 +15,38 @@
     - apt-transport-https
     - ca-certificates
 
-- name: Find ubuntu distro short name 
+- name: Find ubuntu/debian distro short name
   shell: >
-    grep $(lsb_release -rs) /usr/share/python-apt/templates/Ubuntu.info | grep -m 1 'Description: Ubuntu ' | cut -d "'" -f2 | cut -d ' ' -f1 | tr "[:upper:]" "[:lower:]"
+    lsb_release -c | cut -d: -f2 | sed 's/\s//g'
   register: distro
 
 - name: Add passenger source
   template: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list owner=root group=root mode=0600
 
-- name: Update 
+- name: Update
   apt: update_cache=yes
 
 - name: Install packages
   apt: name={{ item }} state=present
-  with_items: 
+  with_items:
     - nginx-extras
     - passenger
 
 - name: Ensure passenger_root is set
-  lineinfile: 
-    dest=/etc/nginx/nginx.conf 
-    state=present 
-    backup=yes 
-    regexp='#?\s*passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;' 
+  lineinfile:
+    dest=/etc/nginx/nginx.conf
+    state=present
+    backup=yes
+    regexp='#?\s*passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;'
     line='passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;'
 
 - name: Ensure passenger_ruby is set
-  lineinfile: 
-    dest=/etc/nginx/nginx.conf 
-    state=present 
-    backup=yes 
-    regexp='#?\s*passenger_ruby /usr/bin/ruby;' 
-    line='passenger_ruby /usr/bin/ruby;' 
+  lineinfile:
+    dest=/etc/nginx/nginx.conf
+    state=present
+    backup=yes
+    regexp='#?\s*passenger_ruby /usr/bin/ruby;'
+    line='passenger_ruby /usr/bin/ruby;'
 
 - name: Restart nginx
   service: name=nginx state=restarted
