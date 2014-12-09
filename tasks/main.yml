@@ -10,7 +10,7 @@
   apt_key: url='http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xAC40B2F7' state=present
 
 - name: Add HTTPS support for apt
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=present update_cache=yes
   with_items:
     - apt-transport-https
     - ca-certificates
