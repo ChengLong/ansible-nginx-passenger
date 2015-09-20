@@ -45,7 +45,7 @@
     dest=/etc/nginx/nginx.conf
     state=present
     backup=yes
-    regexp='#?\s*passenger_ruby /usr/bin/ruby;'
+    regexp='#?\s*passenger_ruby /usr/bin/passenger_free_ruby;'
     line='passenger_ruby /usr/bin/ruby;'
 
 - name: Restart nginx
